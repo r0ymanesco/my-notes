@@ -1,0 +1,139 @@
+#+title: Information Theory
+#+date: 2023-01-03
+#+author: Tze-Yang Tung
+#+columns: %custom_id %item
+#+startup: latexpreview
+
+#+hugo_base_dir: ../
+#+hugo_section: posts
+
+#+hugo_weight: 2001
+#+hugo_auto_set_lastmod: t
+
+#+hugo_tags: ReadingList
+#+hugo_draft: false
+* Rate-distortion
+:PROPERTIES:
+:CUSTOM_ID: information_theory_a
+:END:
+/This is fairly straight forward, will complete later./
+** Universal coding
+:PROPERTIES:
+:CUSTOM_ID: information_theory_a1
+:END:
+Universal coding is concerned with meeting a distortion constraint when the source distribution \(p\) is unknown.
+A coding scheme is said to be /universal/ over a class of source distributions if the rate redundancy converges to zero for every source in that class.
+** d-semifaithful coding
+:PROPERTIES:
+:CUSTOM_ID: information_theory_a2
+:END:
+\(d\)-semifaithful coding is a form of lossy compression in which the decoder outputs a reconstruction sequence that is within distortion \(d\) of the original source sequence *with probability 1*.
+A novel variation of [[#information_theory_a1][universal]] \(d\)-semifaithful coding is in which the distortion measure is revealed to the encoder alone and only when it receives the source sequence \(x^n\) to compress.
+It is referred to as the /universal distortion/ problem in the [[https://dx.doi.org/10.1109/ISIT50566.2022.9834395][literature]].
+
+A natural question to ask is if this class of coding problems can benefit from [[#information_theory_b1][common randomness]].
+* Rate-distortion-perception
+:PROPERTIES:
+:CUSTOM_ID: information_theory_b
+:END:
++ *Definition (Rate-distortion-perception)*:
+  For a Polish metric space \(\mathcal{X}\), let \(( \mathcal{X}, \mathbb{B}( \mathcal{X} ) )\) be the Borel measurable space induced by the metric.
+  Let \(\mathcal{P}( \mathcal{X} )\) denote the set of distributions defined over \(( \mathcal{X}, \mathbb{B}( \mathcal{X} ) )\), and let \(X\) be a random variable with distribution \(p_X \in \mathcal{P}( \mathcal{X} )\).
+  Moreover, let \(\Delta : \mathcal{X} \times \mathcal{X} \mapsto [0, \infty)\) be a distortion function with \(\Delta(x, \hat{x}) = 0 \leftrightarrow x = \hat{x}\) and let \(d : \mathcal{P}( \mathcal{X} ) \times \mathcal{P}( \mathcal{X} ) \mapsto [0, \infty]\) be a divergence with \(d( p_X, p_{\hat{X}} ) = 0 \leftrightarrow p_X = p_{\hat{X}}\).
+  The rate-distortion-perception function for \(X\) is given by
+  \[ R(D, P) = \inf_{ p_{ \hat{X}|X } } I(X; \hat{X}) \]
+  subject to \(\mathbb{E}[ \Delta(X, \hat{X}) ] \leq D\), \(d(p_X, p_{ \hat{X} }) \leq P\).
+** Common randomness
+:PROPERTIES:
+:CUSTOM_ID: information_theory_b1
+:END:
+In [[https://arxiv.org/abs/2202.04147][this paper]], common randomness is useful to reduce the rate of communication required to achieve a certain distortion-perception point even when the randomness is independent of the source.
+Consider a random source with rate \(R_0\) and a code rate of \(R\). In essence, there are \(2^{nR_0}\) codebooks, each with \(2^{nR}\) codes.
+The common random codeword selects the codebook to use and it can be made to match the distribution of the source.
+This is interesting and might be useful in [[#information_theory_c][MAC]] and [[file:waiveform.org::#waiveform_c2][smarthomes]].
+
+However, the benefits of common randomness only seems to appear in the *perfect realism* regime (i.e. \(d(p_X, p_{ \hat{X} }) = 0\)), as this [[http://dx.doi.org/10.1109/JSAIT.2022.3231820][this paper]] shows.
+Moreover, it is only benefitial when the definition of perfect realism is one where \(p_X = p_{\hat{X}^n}\).
+That is, the density divergence is measured jointly rather than single letter.
+If measured only by additive single letter distortion, then *private randomness* (i.e., the encoder and decoder both have independent sources of randomness) is sufficient to achieve the optimal rate.
+* Multiple-access channel (MAC)
+:PROPERTIES:
+:CUSTOM_ID: information_theory_c
+:END:
+/TBD/
+** Multiple-access relay channel (MARC)
+:PROPERTIES:
+:CUSTOM_ID: information_theory_c1
+:END:
+/TBD/
+* Quantisation
+:PROPERTIES:
+:CUSTOM_ID: information_theory_d
+:END:
+** Approximate methods
+:PROPERTIES:
+:CUSTOM_ID: information_theory_d1
+:END:
+Most works consider rounding and using uniform noise to approximate the rounding noise.
+This has been a massively successful approach; pretty much every paper on compression uses this method.
+However, this leads to a mismatch between training and test time performance.
+
+In terms of novelty, this [[https://proceedings.mlr.press/v119/yang20a.html][paper]] uses the posterior to encode the sample into bits, inspired by arithmetic coding.
+** Universal quantisation
+:PROPERTIES:
+:CUSTOM_ID: information_theory_d2
+:END:
+In this [[https://proceedings.neurips.cc/paper/2020/file/92049debbe566ca5782a3045cf300a3c-Paper.pdf][paper]], a /universal quantisation/ scheme is proposed where the problem of communicating a sample \(z\) from a noisy channel \(p(z|x)\) using as few bits as possible is considered.
+Theoretically, it is shown that the number of bits to communicate the sample \(z\) is not much larger than the mutual information \(I(x; z)\) (see [[https://proceedings.neurips.cc/paper/2020/file/92049debbe566ca5782a3045cf300a3c-Paper.pdf][paper]] citation).
+
+This quantisation technique is practically implemented in this [[https://arxiv.org/abs/2010.01185][paper]], called relative entropy coding (REC), where an image compression problem is considered using this technique.
+Relative entropy coding can be defined as follows
++ *Definition (Relative entropy coding)*:
+  Let Q be a target and P be a proposal distribution, with \(D_{KL}(Q || P) < \infty\), and let \(S = (s_1,s_2, ...)\) be an infinite sequence of publicly available independent fair coin tosses.
+  Relative entropy coding is the problem of producing a uniquely decodable code \(C\) representing a sample from \(Q\) given \(S\), such that the codelength \(|C|\)  satisfies \( E[|C|] = \mathcal{O}(D_{KL}(Q || P)) \).
+The key observation is that, in the VAE setup used in that paper, there is a common random distribution, which is the prior of the VAE \( p(z) \).
+Therefore, the amount of information that needs to be sent is only characterised by the KL divergence between the posterior and the prior \( D(p(z|x) || p(z)) \).
+This is highly related to [[#information_theory_b][rate-distortion-perception]] as shown in this [[https://arxiv.org/abs/2102.09270][paper]].
+The authors show that if it is required that perception (distribution) is perfectly matched, then in some settings, stochastic encoders/decoders with [[#information_theory_b1][common randomness]] (e.g., universal quantisation), can achieve lower *distortion* than deterministic ones.
+
+An interesting potential use case for universal quantisation is *channel feedback*.
+In a wireless communication channel, the posterior \( p(z|x) \) is determined by the channel.
+Then in order to losslessly send a sample \( z \sim p(z|x) \) from the receiver to the transmitter,
+REC stipulates that at least \( \mathcal{O}(D_{KL}(Q || P)) \) many bits need to be used.
+However, the problem is that the receiver only ever observes one sample from the posterior but the universal quantisation method samples from a prior rather than from the posterior.
+Instead, we can use the hybrid coding scheme, introduced in this [[https://proceedings.mlr.press/v162/theis22a.html][paper]], where instead of only sending the index, both the *quantised* sample and the index of the candidate are transmitted.
+The coding cost of the index is the same while there is an additional cost for transmitting the quantised sample.
+It is unclear whether this can give good results compared to conventional paradigm of quantising directly.
+
+A major problem of REC is that without any assumptions on \(Q\) and \(P\), the runtime of any REC algorithm is \( \mathcal{O}( \exp( D_{\infty}(Q||P) ) ) \).
+However, if \( dQ/dP \) (the density ratio) is unimodal, then it can be done in \( \mathcal{O}( D_{\infty}(Q||P) ) \) (see [[https://arxiv.org/abs/2010.01185][here]]) .
+
+The key thing to note about REC is that because the indices have a distribution equal to the posterior, sampling the index is equivalent to sampling from the posterior distribution.
+Therefore, a code which uniquely identifies the index of a sample can recover the sample exactly.
+This is a little mind bending. It is somewhat counter intuitive that an integer can have a distribution which is the same as a continuous random variable.
+But I suppose the key is that the common random randomness is itself continuous, which affords the code to be discrete.
+Of course, there is also the bias, which never goes away but is negligible if the number of samples from the prior is large enough.
+The cost is that, for each sample transmitted, a large number of candidates need to be drawn, which is where the \( \mathcal{O}( \exp( D_{\infty}(Q||P) ) ) \) runtime complexity comes from.
+
+An important theorem that universal quantisation relies on is the strong functional representation [[http://dx.doi.org/10.1109/TIT.2018.2865570][(SFR)]] lemma, which states that for general \( (X, Y) \), there exists a \( Z \) that is independent of \( X \) and \( Y \) is a function of \( (X, Z) \), such that \( H(Y | Z) \leq I(X; Y) + \log(I(X; Y) + 1) + 4 \).
+* Feedback
+:PROPERTIES:
+:CUSTOM_ID: information_theory_e
+:END:
+It is known that feedback does not increase the capacity of a point-to-point channel but can increase reliability.
+** Posterior matching
+:PROPERTIES:
+:CUSTOM_ID: information_theory_e1
+:END:
+[[http://dx.doi.org/10.1109/TIT.2011.2104992][Posterior matching]] is a generalised noiseless feedback scheme that is doubly exponentially capacity achieving for AWGN channels.
++ *Theorem (Optimal posterior matching)*:
+  Let \( \theta \) be the message point, \( P_X \) the channel input distribution, \( P_{Y|X} \) the channel likelihood, and \( g_n \) be the transmitter function at time step \( n \).
+  Then the optimal posterior matching scheme is defined as \( g_1(\theta) = F^{-1}_X (\theta) \), \( g_{n+1}(\theta | y^n) = (F^{-1}_X \circ F_{X | Y}(\cdot | y_n)) \circ g_n(\theta | y^{n-1}) \).
+The way to think about posterior matching is that the transmitter, observing the noiseless feedback of the receiver's belief, is trying to send new information so that the receiver is steered to the correct answer.
+
+Interestingly, there are some similarities between posterior matching and [[#information_theory_d2][universal quantisation]].
+In posterior matching, the next transmitted random variable \( X_{n+1} \) is independent of the previous received values \( Y^n \), to ensure that it represents new information.
+Moreover, the message \( \theta \) can be almost surely uniquely recovered from \( (X_{n+1}, Y^n) \) as \( n \rightarrow \infty \).
+Therefore, considering the [[http://dx.doi.org/10.1109/TIT.2018.2865570][SFR]] lemma, where it is shown that for general \( (X, Y) \), there exists a \( Z \) that is independent of \( X \), and \( Y \) is a function of \( (X, Z) \), such that \( H(Y | Z) \leq I(X; Y) + \log(I(X; Y) + 1) + 4 \).
+If we map \( Z \) to \( X_{n+1} \) in the previous problem and \( Y \mapsto \theta \), \( X \mapsto Y^n \), then we have \( H(\theta | X_{n+1}) \leq I(Y^n; \theta) + \log(I(Y^n; \theta) + 1) + 4 \).
+We can interpret \( H(\theta | X_{n+1}) \) as any further uncertainty about the message after transmitting \( X_{n+1} \) and \( I(Y^n; \theta) \) as knowledge the receiver has gained already.

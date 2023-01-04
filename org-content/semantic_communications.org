@@ -1,0 +1,34 @@
+#+title: Semantic Communications
+#+date: 2023-01-04
+#+author: Tze-Yang Tung
+#+columns: %custom_id %item
+#+startup: latexpreview
+
+#+hugo_base_dir: ../
+#+hugo_section: posts
+
+#+hugo_weight: 2001
+#+hugo_auto_set_lastmod: t
+
+#+hugo_tags: ReadingList
+#+hugo_draft: false
+* Rate distortion interpretation
+:PROPERTIES:
+:CUSTOM_ID: semantic_communications_a
+:END:
+Rate-distortion theory is described in detail [[file:information_theory.org::#information_theory_a][here]].
+An example of this can be seen in the project [[file:deepjscc_stream.org][DeepJSCC Stream]].
+Specifically, [[file:deepjscc_stream.org::#deepjscc_stream_c][the approach]] where a conditional transformer is used to predict the number of channel uses needed to achieve a certain reconstruction quality is exactly a rate-distortion problem.
+* Relationship to text-to-image generators
+:PROPERTIES:
+:CUSTOM_ID: semantic_communications_b
+:END:
+There seems to be a connection between semantics and text-to-image generators.
+Clearly the semantic of the text and image are being matched to generate images that match the description of the text.
+* Goal-oriented communications
+:PROPERTIES:
+:CUSTOM_ID: semantic_communications_c
+:END:
+Goal oriented communication can best be described as a [[http://dx.doi.org/10.1109/SSP.2005.1628773][remote rate distortion problem]].
+The idea is that a feature of the source is observed through only the source and the receiver's job is to reconstruct the feature, rather than the source.
+In this case, the goal is the feature.
