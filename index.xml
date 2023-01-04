@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>My Notebook</title>
+    <link>https://r0ymanesco.github.io/my-notes/</link>
+    <description>Recent content on My Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://r0ymanesco.github.io/my-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepJSCC Stream</title>
+      <link>https://r0ymanesco.github.io/my-notes/projects/deepjscc_stream/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/projects/deepjscc_stream/</guid>
+      <description>Using transformers to autoregressively predict the next codeword Poor results The encoding/decoding approach used so far has not worked:
+The implementation that uses 2D transformers eventually diverged and crashed. The impelmentation using VTC transformers stopped improving and produced bad results, weaker than the 2D transformers model. However, the VCT approach seems to be more promising as the transformer video compression paper (VCT, Mentzer) has shown it can work. It is also much faster to train.</description>
+    </item>
+    
+    <item>
+      <title>Goal-oriented Coding</title>
+      <link>https://r0ymanesco.github.io/my-notes/projects/goal_oriented_coding/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/projects/goal_oriented_coding/</guid>
+      <description>Project goal This project aims to leverage universal quantisation for goal-oriented coding. It is closely related to the rate-distortion-perception , as it was shown that under perfect perceptual constraint, a stochastic encoder/decoder can improve the distortion.
+Applications A potential application for universal quantisation in compression is in diffusion models. Diffusion models essentially compute the VAE objective for every time step (usually using randomly chosen time step) to guide the decoder from isotropic noise to an image sample.</description>
+    </item>
+    
+    <item>
+      <title>Graph Coding</title>
+      <link>https://r0ymanesco.github.io/my-notes/projects/graph_coding/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/projects/graph_coding/</guid>
+      <description>Graph Coding Rewrite paper from the perspective of source coding and planning Motivate each solution as a special cost structure of a more general definition Look into source coding of interesting sources, for example, AoI source coding. Then highlight the differences. Goal oriented compression (source coding) Most of these works are still considering single letter reconstruction. We are considering reconstruction over multiple time steps, or equivalently, reconstruction cost minimization. This is more general since the distortion/cost is more arbitrary.</description>
+    </item>
+    
+    <item>
+      <title>Lime SDR</title>
+      <link>https://r0ymanesco.github.io/my-notes/projects/lime_sdr/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/projects/lime_sdr/</guid>
+      <description>Move away from GNURadio GNURadio is too hard to maintain. It has too many dependencies and is hard to write modules for. It would be better to simplify to just a Python script with SoapySDR interfaces.
+Rust implementation The SoapySDR C++ library has Rust bindings, which can be used to set the LimeSDR parameters. Rust should provide much better efficiency compared to Python, although Python might be easier to for experimentation.</description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/reinforcement_learning/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/reinforcement_learning/</guid>
+      <description>Markov decision processes (MDP) Definition TBD Model based Partially observable Markov decision processes (POMDP) Definition TBD There is a surprising amount of convergence properties for POMDPs.</description>
+    </item>
+    
+    <item>
+      <title>Semantic Communications</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/semantic_communications/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/semantic_communications/</guid>
+      <description>Rate distortion interpretation Rate-distortion theory is described in detail here . An example of this can be seen in the project DeepJSCC Stream . Specifically, the approach where a conditional transformer is used to predict the number of channel uses needed to achieve a certain reconstruction quality is exactly a rate-distortion problem.
+Relationship to text-to-image generators There seems to be a connection between semantics and text-to-image generators. Clearly the semantic of the text and image are being matched to generate images that match the description of the text.</description>
+    </item>
+    
+    <item>
+      <title>Information Theory</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/information_theory/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/information_theory/</guid>
+      <description>Rate-distortion This is fairly straight forward, will complete later.
+Universal coding Universal coding is concerned with meeting a distortion constraint when the source distribution \(p\) is unknown. A coding scheme is said to be universal over a class of source distributions if the rate redundancy converges to zero for every source in that class.
+d-semifaithful coding \(d\)-semifaithful coding is a form of lossy compression in which the decoder outputs a reconstruction sequence that is within distortion \(d\) of the original source sequence with probability 1.</description>
+    </item>
+    
+    <item>
+      <title>WAIveform</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/waiveform/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/waiveform/</guid>
+      <description>Potential customer contacts Qualcomm Arash Behboodi (ai research) Dashan Gao (machine learning, ai) Tharak Krishnan (product and engineer leader) Yasutomo Matsuba (principle engineer video) Apple Said Medjkouh (RnD, wireless tech/ecosystem) Alan Carlton (wireless research) Kenza Hamidouche (wireless systems architect) Krisztian Kiss (senior wireless standards) Onur Sahin (wireless research) FB Joel Kyungho Kim (head of cellular tech) Jean-Yves Bouguet (head of ar/vr) BT Ed Hunter (Cellular for Drones &amp;amp; XCelerate Future Flight Project Manager) Intel Gila Kamhi (chief ai officer) Oner Orhan (AI/ML Research Scientist at Intel Labs) Jodie Frew (IoT, ai, business acceleration) Imagination Tim Atherton (director of ai) Arm Sofiane Yous (Senior Principal Embedded AI/ML) Funding tips from Alexandra There are basically 3 stages between idea to series A:</description>
+    </item>
+    
+    
+    
+  </channel>
+</rss>

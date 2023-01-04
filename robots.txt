@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://r0ymanesco.github.io/my-notes/sitemap.xml

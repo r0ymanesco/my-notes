@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ReadingList on My Notebook</title>
+    <link>https://r0ymanesco.github.io/my-notes/tags/readinglist/</link>
+    <description>Recent content in ReadingList on My Notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://r0ymanesco.github.io/my-notes/tags/readinglist/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/reinforcement_learning/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/reinforcement_learning/</guid>
+      <description>Markov decision processes (MDP) Definition TBD Model based Partially observable Markov decision processes (POMDP) Definition TBD There is a surprising amount of convergence properties for POMDPs.</description>
+    </item>
+    
+    <item>
+      <title>Semantic Communications</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/semantic_communications/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/semantic_communications/</guid>
+      <description>Rate distortion interpretation Rate-distortion theory is described in detail here . An example of this can be seen in the project DeepJSCC Stream . Specifically, the approach where a conditional transformer is used to predict the number of channel uses needed to achieve a certain reconstruction quality is exactly a rate-distortion problem.
+Relationship to text-to-image generators There seems to be a connection between semantics and text-to-image generators. Clearly the semantic of the text and image are being matched to generate images that match the description of the text.</description>
+    </item>
+    
+    <item>
+      <title>Information Theory</title>
+      <link>https://r0ymanesco.github.io/my-notes/posts/information_theory/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/posts/information_theory/</guid>
+      <description>Rate-distortion This is fairly straight forward, will complete later.
+Universal coding Universal coding is concerned with meeting a distortion constraint when the source distribution \(p\) is unknown. A coding scheme is said to be universal over a class of source distributions if the rate redundancy converges to zero for every source in that class.
+d-semifaithful coding \(d\)-semifaithful coding is a form of lossy compression in which the decoder outputs a reconstruction sequence that is within distortion \(d\) of the original source sequence with probability 1.</description>
+    </item>
+    
+  </channel>
+</rss>
