@@ -2,7 +2,7 @@
 title = "Server Migration"
 author = ["Tze-Yang Tung"]
 date = 2023-01-05
-lastmod = 2023-01-05T14:26:23+00:00
+lastmod = 2023-01-05T14:31:37+00:00
 tags = ["Projects"]
 draft = false
 weight = 2001
@@ -92,11 +92,11 @@ What you should do in that case is configure the maximum allowed by the website 
 Often they will have other chassis available that can hold more GPUs.
 
 Lastly, when striking a balance between GPU compute, memory and price, consider the use case first.
-So far, we have only purchased gaming grade GPUs, which offers at most 24GB memory and moderate performance.
-This is because they are very affordable for what they offer, and our computing needs have not been so extreme that these GPUs cannot handle.
+So far, we have only purchased gaming grade GPUs, which offer at most 24GB memory and moderate performance.
+This is because they are very affordable for what they offer, and our computing needs have not been so extreme that these GPUs cannot handle them.
 Moreover, due to the low price, we can buy many of them so that we have a large number of GPUs for everyone to use.
 
-However, I understand that recently there has been increasing demand for compute as some people have begun to train reasonably large Transformer models.
+However, recently there has been increasing demand for compute as some people have begun to train reasonably large Transformer models.
 Therefore, it might make sense to purchase a few professional grade GPUs, like the [NVIDIA RTX 6000 (48GB)](https://www.scan.co.uk/products/48gb-pny-nvidia-rtx-a6000-pcie-40-x16-ampere-10752-core-336-tensor-84-rt-cores-gddr6-w-ecc-dp).
 Bare in mind that such GPUs are extremely expensive and can itself cost as much as a single server that we have currently.
 

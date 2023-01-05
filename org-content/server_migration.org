@@ -26,9 +26,9 @@ To solve these problems, the new approach will split the problem into 3 sub-prob
 + [[#server_migration_b3][Job deployment]]
 
 The central idea is to have a single server that manages logins for every other machine in the cluster so that each new user only needs to be added once.
-We also want to reduce user dependency on the libraries on the servers themselves in order to make software updates easier.
+We also want to reduce user dependency on the libraries installed on the servers themselves in order to make software updates easier.
 Finally, in order to support the skeleton approach to server libraries, we will use Docker to launch jobs on a specific machine of the user's choice.
-The dashboard currently being used to monitor GPU utilisation can continue to exist so that users know which machines are free to launch jobs.
+The dashboard currently being used to monitor GPU utilisation can continue to exist so that users know which machines are free to launch jobs to.
 The next section outlines how these objectives will be accompolished.
 * Solution
 :PROPERTIES:
@@ -61,21 +61,16 @@ The minimum software requirement on each server are the following:
 :PROPERTIES:
 :CUSTOM_ID: server_migration_b3
 :END:
-+ use docker (briefly describe docker)
-  - might be possible to put the NVIDIA drivers in the container but not sure. If not then the servers will install the drivers.
-+ create containers with different libraries hosted on docker hub (users can simply pull it and add/sub libraries as needed)
-+ still use dashboard to determine which machines have capacity to run
-
 As mentioned above, we will use [[https://www.docker.com/][Docker]] to deploy jobs.
 Docker is a containerised application that allows you to specify the code and required libraries to run the code, all completely independent from the base OS installation.
 This means that each user can simply build containers with the libraries that they need without having to install any of the libraries on the base OS itself.
-The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow version, that other can use as the base and add other libraries as required.
-These containers can be hosted on [[https://index.docker.io/][Docker Hub]] for everyone else to download.
-It may even be possible to have the NVIDIA drivers installed within the Docker container itself (see [[https://github.com/NVIDIA/nvidia-docker/issues/871][here]]), but might require some experimentation.
-Users would look on the dashboard to see which server is available and deploy jobs to the selected server.
+The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow versions, that other can use as the base and add additional libraries as required.
+These containers can be hosted on [[https://index.docker.io/][Docker Hub]] for everyone to download.
+It may even be possible to have the NVIDIA drivers installed within the Docker container itself (see [[https://github.com/NVIDIA/nvidia-docker/issues/871][here]]), but it is not well documented and might require some experimentation.
+Users would check on the dashboard to see which server is available and deploy jobs to the selected server.
 
 Docker does require some effort to learn and get used to but in the long run, it will be worth it.
-It's also a useful skill in industry as many tech companies use Docker to run jobs.
+It's also a useful skill in industry as many tech companies use Docker to run jobs on their servers.
 * New servers
 :PROPERTIES:
 :CUSTOM_ID: server_migration_c
@@ -96,11 +91,11 @@ What you should do in that case is configure the maximum allowed by the website 
 Often they will have other chassis available that can hold more GPUs.
 
 Lastly, when striking a balance between GPU compute, memory and price, consider the use case first.
-So far, we have only purchased gaming grade GPUs, which offers at most 24GB memory and moderate performance.
-This is because they are very affordable for what they offer, and our computing needs have not been so extreme that these GPUs cannot handle.
+So far, we have only purchased gaming grade GPUs, which offer at most 24GB memory and moderate performance.
+This is because they are very affordable for what they offer, and our computing needs have not been so extreme that these GPUs cannot handle them.
 Moreover, due to the low price, we can buy many of them so that we have a large number of GPUs for everyone to use.
 
-However, I understand that recently there has been increasing demand for compute as some people have begun to train reasonably large Transformer models.
+However, recently there has been increasing demand for compute as some people have begun to train reasonably large Transformer models.
 Therefore, it might make sense to purchase a few professional grade GPUs, like the [[https://www.scan.co.uk/products/48gb-pny-nvidia-rtx-a6000-pcie-40-x16-ampere-10752-core-336-tensor-84-rt-cores-gddr6-w-ecc-dp][NVIDIA RTX 6000 (48GB)]].
 Bare in mind that such GPUs are extremely expensive and can itself cost as much as a single server that we have currently.
 
