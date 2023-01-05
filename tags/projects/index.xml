@@ -6,7 +6,18 @@
     <description>Recent content in Projects on My Notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://r0ymanesco.github.io/my-notes/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://r0ymanesco.github.io/my-notes/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Server Migration</title>
+      <link>https://r0ymanesco.github.io/my-notes/projects/server_migration/</link>
+      <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://r0ymanesco.github.io/my-notes/projects/server_migration/</guid>
+      <description>Architecture The current architecture of independent servers with a dashboard for monitoring usage is unsustainable. As the number of servers have increased, adding new users becomes cumbersome as each machine needs to be individually added. Moreover, each server runs different versions of Linux and drivers, making software updates extremely difficult.
+To solve these problems, the new approach will split the problem into 3 sub-problems:
+User management Library management Job deployment The central idea is to have a single server that manages logins for every other machine in the cluster so that each new user only needs to be added once.</description>
+    </item>
+    
     <item>
       <title>DeepJSCC Stream</title>
       <link>https://r0ymanesco.github.io/my-notes/projects/deepjscc_stream/</link>
