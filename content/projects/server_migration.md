@@ -2,7 +2,7 @@
 title = "Server Migration"
 author = ["Tze-Yang Tung"]
 date = 2023-01-05
-lastmod = 2023-01-05T14:31:37+00:00
+lastmod = 2023-01-05T14:45:37+00:00
 tags = ["Projects"]
 draft = false
 weight = 2001
@@ -21,9 +21,9 @@ To solve these problems, the new approach will split the problem into 3 sub-prob
 -   [Job deployment](#server_migration_b3)
 
 The central idea is to have a single server that manages logins for every other machine in the cluster so that each new user only needs to be added once.
-We also want to reduce user dependency on the libraries on the servers themselves in order to make software updates easier.
+We also want to reduce user dependency on the libraries installed on the servers themselves in order to make software updates easier.
 Finally, in order to support the skeleton approach to server libraries, we will use Docker to launch jobs on a specific machine of the user's choice.
-The dashboard currently being used to monitor GPU utilisation can continue to exist so that users know which machines are free to launch jobs.
+The dashboard currently being used to monitor GPU utilisation can continue to exist so that users know which machines are free to launch jobs to.
 The next section outlines how these objectives will be accompolished.
 
 
@@ -57,21 +57,16 @@ The minimum software requirement on each server are the following:
 
 ### Job deployment {#server_migration_b3}
 
--   use docker (briefly describe docker)
-    -   might be possible to put the NVIDIA drivers in the container but not sure. If not then the servers will install the drivers.
--   create containers with different libraries hosted on docker hub (users can simply pull it and add/sub libraries as needed)
--   still use dashboard to determine which machines have capacity to run
-
 As mentioned above, we will use [Docker](https://www.docker.com/) to deploy jobs.
 Docker is a containerised application that allows you to specify the code and required libraries to run the code, all completely independent from the base OS installation.
 This means that each user can simply build containers with the libraries that they need without having to install any of the libraries on the base OS itself.
-The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow version, that other can use as the base and add other libraries as required.
-These containers can be hosted on [Docker Hub](https://index.docker.io/) for everyone else to download.
-It may even be possible to have the NVIDIA drivers installed within the Docker container itself (see [here](https://github.com/NVIDIA/nvidia-docker/issues/871)), but might require some experimentation.
-Users would look on the dashboard to see which server is available and deploy jobs to the selected server.
+The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow versions, that other can use as the base and add additional libraries as required.
+These containers can be hosted on [Docker Hub](https://index.docker.io/) for everyone to download.
+It may even be possible to have the NVIDIA drivers installed within the Docker container itself (see [here](https://github.com/NVIDIA/nvidia-docker/issues/871)), but it is not well documented and might require some experimentation.
+Users would check on the dashboard to see which server is available and deploy jobs to the selected server.
 
 Docker does require some effort to learn and get used to but in the long run, it will be worth it.
-It's also a useful skill in industry as many tech companies use Docker to run jobs.
+It's also a useful skill in industry as many tech companies use Docker to run jobs on their servers.
 
 
 ## New servers {#server_migration_c}
