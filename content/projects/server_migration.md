@@ -2,7 +2,7 @@
 title = "Server Migration"
 author = ["Tze-Yang Tung"]
 date = 2023-01-05
-lastmod = 2023-01-05T15:16:27+00:00
+lastmod = 2023-01-05T15:26:05+00:00
 tags = ["Projects"]
 draft = false
 weight = 2001
@@ -63,7 +63,7 @@ The minimum software requirement on each server are the following:
 As mentioned above, we will use [Docker](https://www.docker.com/) to deploy jobs.
 Docker is a containerised application that allows you to specify the code and required libraries to run the code, all completely independent from the base OS installation.
 This means that each user can simply build containers with the libraries that they need without having to install any of the libraries on the base OS itself.
-The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow versions, that other can use as the base and add additional libraries as required.
+The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow versions, that others can use as the base and add additional libraries as required.
 These containers can be hosted on [Docker Hub](https://index.docker.io/) for everyone to download.
 You can also specify in your container to copy the necessary files from the central storage to the client server and remove it when the job is done so that the client drive doesn't run out of space.
 It may even be possible to have the NVIDIA drivers installed within the Docker container itself (see [here](https://github.com/NVIDIA/nvidia-docker/issues/871)), but it is not well documented and might require some experimentation.
