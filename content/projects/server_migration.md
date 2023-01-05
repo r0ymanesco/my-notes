@@ -2,7 +2,7 @@
 title = "Server Migration"
 author = ["Tze-Yang Tung"]
 date = 2023-01-05
-lastmod = 2023-01-05T14:45:37+00:00
+lastmod = 2023-01-05T15:09:42+00:00
 tags = ["Projects"]
 draft = false
 weight = 2001
@@ -41,6 +41,9 @@ The system uses a host server to store user login information where client serve
 This way, new users only need to be added to the host server.
 Any machine can be the host but I recommend using denizpower as it already hosts the dashboard.
 
+For storage, we will take all of the hard drives that are in each individual server and integrate them into a network drive (e.g., [NAS](https://en.wikipedia.org/wiki/Network-attached_storage) or just attach them to the LDAP host server).
+Every user would store their data in this large hard drive so that we don't run out of space on the system drive in the client servers.
+
 
 ### Library management {#server_migration_b2}
 
@@ -62,6 +65,7 @@ Docker is a containerised application that allows you to specify the code and re
 This means that each user can simply build containers with the libraries that they need without having to install any of the libraries on the base OS itself.
 The lab can also create containers with some basic libraries, like specific Pytorch/Tensorflow versions, that other can use as the base and add additional libraries as required.
 These containers can be hosted on [Docker Hub](https://index.docker.io/) for everyone to download.
+You can also specify in your container to copy the necessary files from the central storage to the client server and remove it when the job is done so that the client drive doesn't run out of space.
 It may even be possible to have the NVIDIA drivers installed within the Docker container itself (see [here](https://github.com/NVIDIA/nvidia-docker/issues/871)), but it is not well documented and might require some experimentation.
 Users would check on the dashboard to see which server is available and deploy jobs to the selected server.
 
