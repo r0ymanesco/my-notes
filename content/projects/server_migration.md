@@ -2,7 +2,7 @@
 title = "Server Migration"
 author = ["Tze-Yang Tung"]
 date = 2023-01-05
-lastmod = 2023-01-05T15:09:42+00:00
+lastmod = 2023-01-05T15:16:27+00:00
 tags = ["Projects"]
 draft = false
 weight = 2001
@@ -86,7 +86,7 @@ You can usually get a discount on the price.
 Secondly, try to put as many GPUs in a single machine as possible.
 This is because our jobs are not very CPU intensive so it doesn't make sense to only put 1 or 2 GPUs in a machine.
 Each machine also takes up a considerable amount of space on the server rack so we want to be as space efficient as possible.
-However, when you configure machine on PC Specialist's website, they may not let you put more than a certain number of GPUs in a machine.
+However, when you configure a machine on PC Specialist's website, they may not let you put more than a certain number of GPUs in a machine.
 What you should do in that case is configure the maximum allowed by the website and then contact Tim to ask him what the maximum number allowed actually is.
 Often they will have other chassis available that can hold more GPUs.
 
