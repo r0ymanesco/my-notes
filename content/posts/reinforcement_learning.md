@@ -2,9 +2,9 @@
 title = "Reinforcement Learning"
 author = ["Tze-Yang Tung"]
 date = 2023-01-04
-lastmod = 2023-01-04T11:09:47+00:00
+lastmod = 2023-01-06T21:08:52+00:00
 tags = ["ReadingList"]
-draft = false
+draft = true
 weight = 2001
 +++
 

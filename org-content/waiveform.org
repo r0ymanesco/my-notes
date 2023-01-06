@@ -11,7 +11,7 @@
 #+hugo_auto_set_lastmod: t
 
 #+hugo_tags: Startup
-#+hugo_draft: false
+#+hugo_draft: true
 * Potential customer contacts
 :PROPERTIES:
 :CUSTOM_ID: waiveform_a
