@@ -11,7 +11,7 @@
 #+hugo_auto_set_lastmod: t
 
 #+hugo_tags: ReadingList
-#+hugo_draft: true
+#+hugo_draft: false
 * Markov decision processes (MDP)
 :PROPERTIES:
 :CUSTOM_ID: reinforcement_learning_a

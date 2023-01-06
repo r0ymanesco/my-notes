@@ -2,9 +2,9 @@
 title = "WAIveform"
 author = ["Tze-Yang Tung"]
 date = 2023-01-03
-lastmod = 2023-01-06T21:08:16+00:00
+lastmod = 2023-01-06T21:12:02+00:00
 tags = ["Startup"]
-draft = true
+draft = false
 weight = 2001
 +++
 
@@ -132,7 +132,7 @@ A smarthome network is basically a mutiple-access relay channel (MARC).
 ### Integrated sensing and communications (ISAC) {#waiveform_c3}
 
 ISAC for multiple access channels (MAC) is also amiable to JSCC.
-This is mostly due to the fact that MACs can gain more significantly than JSCC.
+This is mostly due to the fact that MACs can gain more significantly than point-to-point.
 
 
 ## Customer discovery {#waiveform_d}

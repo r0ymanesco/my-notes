@@ -11,7 +11,7 @@
 #+hugo_auto_set_lastmod: t
 
 #+hugo_tags: Startup
-#+hugo_draft: true
+#+hugo_draft: false
 * Potential customer contacts
 :PROPERTIES:
 :CUSTOM_ID: waiveform_a
@@ -135,7 +135,7 @@ A smarthome network is basically a mutiple-access relay channel (MARC).
 :CUSTOM_ID: waiveform_c3
 :END:
 ISAC for multiple access channels (MAC) is also amiable to JSCC.
-This is mostly due to the fact that MACs can gain more significantly than JSCC.
+This is mostly due to the fact that MACs can gain more significantly than point-to-point.
 * Customer discovery
 :PROPERTIES:
 :CUSTOM_ID: waiveform_d
