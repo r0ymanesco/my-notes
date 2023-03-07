@@ -2,7 +2,7 @@
 title = "Information Theory"
 author = ["Tze-Yang Tung"]
 date = 2023-01-03
-lastmod = 2023-01-10T15:27:18+08:00
+lastmod = 2023-01-10T15:29:29+08:00
 tags = ["ReadingList"]
 draft = false
 weight = 2001
